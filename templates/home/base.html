@@ -1,0 +1,237 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
+		<!-- Fullpage CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.css">
+		
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type = "text/css" href = "{% static 'home/home.css' %}">
+		
+		<!-- Fullpage.js -->
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.9/fullpage.min.js"></script>
+		
+		<script type="text/javascript">
+					
+			
+			var open1 = false;
+			var open2 = false;
+			var open3 = false;
+			
+			function slide_a1(){
+				
+				if (open1 == false){
+					
+					
+					document.getElementById('drawer-a1').classList.add('slide-d');
+					document.getElementById('drawer-a1').classList.remove('slide-u');
+					
+					var para = document.createElement("p");
+					var node = document.createTextNode("This is a new paragraph.");
+					para.appendChild(node)
+					var element = document.getElementById("drawer-a1-t");
+					para.setAttribute("id", "a1-p1");
+					element.appendChild(para);
+					para.classList.add('fade-in-f');
+					para.classList.remove('fade-out-f');
+					
+					open1 = true;
+					
+				} else if (open1 == true){
+					
+					document.getElementById('drawer-a1').classList.add('slide-u');
+					document.getElementById('drawer-a1').classList.remove('slide-d');
+					
+					
+					var elem = document.getElementById('a1-p1');
+					elem.classList.add('fade-out-f');
+					elem.classList.remove('fade-in-f');
+					setTimeout(function(){elem.parentNode.removeChild(elem);}, 200);
+	
+					open1 = false;
+					
+				}
+			}
+			
+			function slide_a2(){
+				
+				if (open2 == false){
+					
+					document.getElementById('drawer-a3').style.zIndex = "0";
+					document.getElementById('drawer-a2').style.zIndex = "1";
+					document.getElementById('span-l').style.zIndex = "1";
+					document.getElementById('span-r').style.zIndex = "0"
+					document.getElementById('drawer-a2').classList.add('slide-out');
+					document.getElementById('drawer-a2').classList.remove('slide-in');
+					
+					var para = document.createElement("p");
+					var node = document.createTextNode("This is a new paragraph2");
+					para.appendChild(node)
+					var element = document.getElementById("drawer-a2-t");
+					para.setAttribute("id", "a2-p1");
+					element.appendChild(para);
+					para.classList.add('fade-in-f');
+					para.classList.remove('fade-out-f');
+					
+					open2 = true;
+					
+				} else if (open2 == true){
+					
+					document.getElementById('drawer-a2').classList.add('slide-in');
+					document.getElementById('drawer-a2').classList.remove('slide-out');
+					
+					var elem = document.getElementById('a2-p1');
+					elem.classList.add('fade-out-f');
+					elem.classList.remove('fade-in-f');
+					setTimeout(function(){elem.parentNode.removeChild(elem);}, 200);
+					
+					open2 = false;
+					
+				}
+			}
+			
+			function slide_a3(){
+				
+				if (open3 == false){
+					
+					document.getElementById('drawer-a2').style.zIndex = "0";
+					document.getElementById('drawer-a3').style.zIndex = "1";
+					document.getElementById('span-r').style.zIndex = "2";
+					document.getElementById('span-l').style.zIndex = "0"
+					document.getElementById('drawer-a3').classList.add('slide-out');
+					document.getElementById('drawer-a3').classList.remove('slide-in');
+					
+					var para = document.createElement("p");
+					var node = document.createTextNode("This is a new paragraph3.");
+					para.appendChild(node)
+					var element = document.getElementById("drawer-a3-t");
+					para.setAttribute("id", "a3-p1");
+					element.appendChild(para);
+					para.classList.add('fade-in-f');
+					para.classList.remove('fade-out-f');
+					
+					open3 = true;
+					
+				} else if (open3 == true){
+					
+					document.getElementById('drawer-a3').classList.add('slide-in');
+					document.getElementById('drawer-a3').classList.remove('slide-out');
+					
+					var elem = document.getElementById('a3-p1');
+					elem.classList.add('fade-out-f');
+					elem.classList.remove('fade-in-f');
+					setTimeout(function(){elem.parentNode.removeChild(elem);}, 200);
+					
+					open3 = false;
+					
+				}
+			}
+
+			
+		</script>
+		
+		{% if title %}
+			<title>Mihail's Portfolio - {{title}}</title>
+		{% else %}
+			<title>Mihail's Portfolio</title>
+		{% endif %}
+	
+	</head>
+	<body>
+    	
+		
+		{% block content %}{% endblock %}
+		
+		<!-- jQuery, Popper.js, Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		
+		
+		<script>
+			new fullpage('#fullpage', {
+				//options here
+				autoScrolling:true,
+				anchors:['home','projects','about'],
+				scrollHorizontally: true,
+				verticalCentered:true,
+				horizontalCentered:true,
+				scrollOverflow: true,
+				scrollingSpeed:0,
+				scrollBar: true,
+				
+				//navigation: true,
+				//navigationTooltips:['Home','Projects','About'],
+				
+				onLeave: function(origin, destination, direction){
+					var leavingSection = this;
+
+					//after leaving section 2
+					if(destination.index == 0){
+						document.getElementById('nav-1').classList.add('active');
+						document.getElementById('nav-2').classList.remove('active');
+						document.getElementById('nav-3').classList.remove('active');
+						document.getElementById('nav-4').classList.remove('active');
+						document.getElementById('nav-5').classList.remove('active');
+					}
+					
+					else if(destination.index == 1){
+						document.getElementById('nav-1').classList.remove('active');
+						document.getElementById('nav-2').classList.add('active');
+						document.getElementById('nav-3').classList.remove('active');
+						document.getElementById('nav-4').classList.remove('active');
+						document.getElementById('nav-5').classList.remove('active');
+					}
+					
+					else if(destination.index == 2){
+						document.getElementById('nav-1').classList.remove('active');
+						document.getElementById('nav-2').classList.remove('active');
+						document.getElementById('nav-3').classList.add('active');
+						document.getElementById('nav-4').classList.remove('active');
+						document.getElementById('nav-5').classList.remove('active');						
+					}
+					
+					else if(destination.index == 3){
+						document.getElementById('nav-1').classList.remove('active');
+						document.getElementById('nav-2').classList.remove('active');
+						document.getElementById('nav-3').classList.remove('active');
+						document.getElementById('nav-4').classList.add('active');
+						document.getElementById('nav-5').classList.remove('active');
+					}
+					
+					else if(destination.index == 4){
+						document.getElementById('nav-1').classList.remove('active');
+						document.getElementById('nav-2').classList.remove('active');
+						document.getElementById('nav-3').classList.remove('active');
+						document.getElementById('nav-4').classList.remove('active');
+						document.getElementById('nav-5').classList.add('active');
+					}
+				}
+				
+				//afterLoad: function(origin, destination, direction){
+				//	destination.classList.add('active')
+			});
+			
+			//event listeners
+			document.getElementById("drawer-a1").addEventListener("click", slide_a1);
+			document.getElementById("span-c").addEventListener("click", slide_a1);
+			
+			document.getElementById("drawer-a2").addEventListener("click", slide_a2);
+			document.getElementById("span-l").addEventListener("click", slide_a2);
+			
+			document.getElementById("drawer-a3").addEventListener("click", slide_a3);
+			document.getElementById("span-r").addEventListener("click", slide_a3);
+			
+		</script>
+
+		
+  </body>
+</html>
